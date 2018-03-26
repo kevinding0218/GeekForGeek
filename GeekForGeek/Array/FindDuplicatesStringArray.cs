@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace GeekForGeek.Array
 {
-    public static class FindDuplicateInArray
+    public static class FindDuplicatesStringArray
     {
         /// <summary>
         /// Given a string array find duplicate string with count

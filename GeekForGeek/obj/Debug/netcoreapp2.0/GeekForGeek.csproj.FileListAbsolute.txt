@@ -1,4 +1,3 @@
-H:\GeekForGeek\GeekForGeek\obj\Debug\netcoreapp2.0\GeekForGeek.csprojResolveAssemblyReference.cache
 H:\GeekForGeek\GeekForGeek\obj\Debug\netcoreapp2.0\GeekForGeek.csproj.CoreCompileInputs.cache
 H:\GeekForGeek\GeekForGeek\obj\Debug\netcoreapp2.0\GeekForGeek.AssemblyInfoInputs.cache
 H:\GeekForGeek\GeekForGeek\obj\Debug\netcoreapp2.0\GeekForGeek.AssemblyInfo.cs
@@ -9,3 +8,4 @@ H:\GeekForGeek\GeekForGeek\bin\Debug\netcoreapp2.0\GeekForGeek.dll
 H:\GeekForGeek\GeekForGeek\bin\Debug\netcoreapp2.0\GeekForGeek.pdb
 H:\GeekForGeek\GeekForGeek\obj\Debug\netcoreapp2.0\GeekForGeek.dll
 H:\GeekForGeek\GeekForGeek\obj\Debug\netcoreapp2.0\GeekForGeek.pdb
+H:\GeekForGeek\GeekForGeek\obj\Debug\netcoreapp2.0\GeekForGeek.csprojResolveAssemblyReference.cache

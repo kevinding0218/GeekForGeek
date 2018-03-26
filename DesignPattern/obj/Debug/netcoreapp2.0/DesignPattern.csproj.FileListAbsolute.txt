@@ -1,0 +1,10 @@
+H:\GeekForGeek\DesignPattern\obj\Debug\netcoreapp2.0\DesignPattern.csproj.CoreCompileInputs.cache
+H:\GeekForGeek\DesignPattern\obj\Debug\netcoreapp2.0\DesignPattern.AssemblyInfoInputs.cache
+H:\GeekForGeek\DesignPattern\obj\Debug\netcoreapp2.0\DesignPattern.AssemblyInfo.cs
+H:\GeekForGeek\DesignPattern\bin\Debug\netcoreapp2.0\DesignPattern.deps.json
+H:\GeekForGeek\DesignPattern\bin\Debug\netcoreapp2.0\DesignPattern.runtimeconfig.json
+H:\GeekForGeek\DesignPattern\bin\Debug\netcoreapp2.0\DesignPattern.runtimeconfig.dev.json
+H:\GeekForGeek\DesignPattern\bin\Debug\netcoreapp2.0\DesignPattern.dll
+H:\GeekForGeek\DesignPattern\bin\Debug\netcoreapp2.0\DesignPattern.pdb
+H:\GeekForGeek\DesignPattern\obj\Debug\netcoreapp2.0\DesignPattern.dll
+H:\GeekForGeek\DesignPattern\obj\Debug\netcoreapp2.0\DesignPattern.pdb
