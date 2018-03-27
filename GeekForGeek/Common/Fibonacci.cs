@@ -11,6 +11,9 @@ namespace GeekForGeek.Common
         /// <summary>
         /// Why Stack Overflow error occurs in recursion?
         /// If base case is not reached or not defined, then stack overflow problem may arise.
+        /// Whenever you call a function, including recursively, 
+        /// the return address and often the arguments are pushed onto the call stack. 
+        /// The stack is finite, so if the recursion is too deep you'll eventually run out of stack space.
         /// int fact(int n)
         /// {
         ///     // wrong base case (it may cause
