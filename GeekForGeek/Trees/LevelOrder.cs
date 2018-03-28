@@ -78,6 +78,22 @@ namespace GeekForGeek.Trees
                 PrintGivenLevel(root, i);
         }
 
+        /* Function to print REVERSE level order traversal a tree*/
+        /// <summary>
+        /// https://www.geeksforgeeks.org/reverse-level-order-traversal/
+        /// </summary>
+        /// <param name="root"></param>
+        private static void PrintReverseLevelOrder(BinaryNodeInt root)
+        {
+            int h = Height(root);
+            int i;
+            for (i = h; i >= 1; i--)
+            //THE ONLY LINE DIFFERENT FROM NORMAL LEVEL ORDER
+            {
+                PrintGivenLevel(root, i);
+            }
+        }
+
         // Time Complexity: O(n^2) in worst case. For a skewed tree, 
         // printGivenLevel() takes O(n) time where n is the number of nodes in the skewed tree.
         // So time complexity of printLevelOrder() is O(n) + O(n-1) + O(n-2) + .. + O(1) which is O(n^2).
@@ -120,7 +136,54 @@ namespace GeekForGeek.Trees
             }
         }
 
-        public static void TestLevelOrder()
+        /// <summary>
+        /// The idea is to use a stack to get the reverse level order. 
+        /// If we do normal level order traversal and instead of printing a node, 
+        /// push the node to a stack and then print contents of stack, we get “5 4 3 2 1” for above example tree, 
+        /// but output should be “4 5 2 3 1”. 
+        /// So to get the correct sequence (left to right at every level), 
+        /// we process children of a node in reverse order, 
+        /// we first push the right subtree to stack, then left subtree.
+        /// https://www.geeksforgeeks.org/reverse-level-order-traversal/
+        /// </summary>
+        /// <param name="root"></param>
+        private static void PrintReverseLevelOrderUsingQueueStack(BinaryNodeInt node)
+        {
+            Stack<BinaryNodeInt> S = new Stack<BinaryNodeInt>();
+            Queue<BinaryNodeInt> Q = new Queue<BinaryNodeInt>();
+            Q.Enqueue(node);
+
+            // Do something like normal level order traversal order.Following
+            // are the differences with normal level order traversal
+            // 1) Instead of printing a node, we push the node to stack
+            // 2) Right subtree is visited before left subtree
+            while (Q.Count > 0)
+            {
+                /* Dequeue node and make it root */
+                node = Q.Peek();
+                Q.Dequeue();
+                S.Push(node);
+
+                /* Enqueue right child */
+                if (node.Right != null)
+                    // NOTE: RIGHT CHILD IS ENQUEUED BEFORE LEFT
+                    Q.Enqueue(node.Right);
+
+                /* Enqueue left child */
+                if (node.Left != null)
+                    Q.Enqueue(node.Left);
+            }
+
+            // Now pop all items from stack one by one and print them
+            while (S.Count > 0)
+            {
+                node = S.Peek();
+                Console.Write(node.Value + " ");
+                S.Pop();
+            }
+        }
+
+        public static void Test()
         {
             BinaryNodeInt root = new BinaryNodeInt(1);
             root.Left = new BinaryNodeInt(2);
@@ -128,7 +191,14 @@ namespace GeekForGeek.Trees
             root.Left.Left = new BinaryNodeInt(4);
             root.Left.Right = new BinaryNodeInt(5);
 
+            Console.Write("level traversal of binary tree is \n");
+            PrintLevelOrder(root);
+            Console.Write("\n");
             PrintLevelOrderUsingQueue(root);
+            Console.Write("\n");
+            PrintReverseLevelOrder(root);
+            Console.Write("\n");
+            PrintReverseLevelOrderUsingQueueStack(root);
         }
     }
 }

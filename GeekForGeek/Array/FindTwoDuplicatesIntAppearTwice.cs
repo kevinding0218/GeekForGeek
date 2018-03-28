@@ -13,6 +13,28 @@ namespace GeekForGeek.Array
     public class FindTwoDuplicatesIntAppearTwice
     {
         /// <summary>
+        /// Traverse the array once. While traversing, 
+        /// keep track of count of all elements in the array using a temp array count[] of size n, 
+        /// when you see an element whose count is already set, print it as duplicate.
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="size"></param>
+        private static void UseArray(int[] arr, int size)
+        {
+            int[] count = new int[size];
+            int i;
+
+            Console.Write("Repeated elements are: ");
+            for (i = 0; i < size; i++)
+            {
+                if (count[arr[i]] == 1)
+                    Console.Write(arr[i] + " ");
+                else
+                    count[arr[i]]++;
+            }
+        }
+
+        /// <summary>
         /// We know the sum of integers from 1 to n is n(n+1)/2 and product is n!. We calculate the sum of input array, when this sum is subtracted from n(n+1)/2, we get X + Y because X and Y are the two numbers missing from set [1..n]. Similarly calculate product of input array, when this product is divided from n!, we get X*Y. Given sum and product of X and Y, we can find easily out X and Y.
         /// Let summation of all numbers in array be S and product be P
         /// X + Y = S – n(n+1)/2

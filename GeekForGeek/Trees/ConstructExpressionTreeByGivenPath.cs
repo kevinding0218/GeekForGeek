@@ -18,7 +18,7 @@ namespace GeekForGeek.Trees
     /// expression: 3 + ((5+9)*2)
     /// https://www.geeksforgeeks.org/expression-tree/
     /// </summary>
-    public static class EvaluatingExpressionTree
+    public static class ConstructExpressionTreeByGivenPath
     {
         // A utility function to check if 'c'
         // is an operator

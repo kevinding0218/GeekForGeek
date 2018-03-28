@@ -54,7 +54,7 @@ namespace GeekForGeek.Trees
             return l_val / r_val;
         }
 
-        public static void TestEvaluationExpressionTree()
+        public static void Test()
         {
             ///      +
             ///    /   \

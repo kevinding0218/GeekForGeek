@@ -1,0 +1,11 @@
+H:\GeekForGeek\DesignPattern\bin\Debug\netcoreapp2.0\SingletonPattern.deps.json
+H:\GeekForGeek\DesignPattern\bin\Debug\netcoreapp2.0\SingletonPattern.runtimeconfig.json
+H:\GeekForGeek\DesignPattern\bin\Debug\netcoreapp2.0\SingletonPattern.runtimeconfig.dev.json
+H:\GeekForGeek\DesignPattern\bin\Debug\netcoreapp2.0\SingletonPattern.dll
+H:\GeekForGeek\DesignPattern\bin\Debug\netcoreapp2.0\SingletonPattern.pdb
+H:\GeekForGeek\DesignPattern\obj\Debug\netcoreapp2.0\SingletonPattern.csprojResolveAssemblyReference.cache
+H:\GeekForGeek\DesignPattern\obj\Debug\netcoreapp2.0\SingletonPattern.csproj.CoreCompileInputs.cache
+H:\GeekForGeek\DesignPattern\obj\Debug\netcoreapp2.0\SingletonPattern.AssemblyInfoInputs.cache
+H:\GeekForGeek\DesignPattern\obj\Debug\netcoreapp2.0\SingletonPattern.AssemblyInfo.cs
+H:\GeekForGeek\DesignPattern\obj\Debug\netcoreapp2.0\SingletonPattern.dll
+H:\GeekForGeek\DesignPattern\obj\Debug\netcoreapp2.0\SingletonPattern.pdb
