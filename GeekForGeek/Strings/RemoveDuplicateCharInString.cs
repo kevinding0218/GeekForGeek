@@ -63,5 +63,11 @@ namespace GeekForGeek.Strings
             // print string after deleting duplicate elements
             return string.Join("", hs);
         }
+
+        public static void Test()
+        {
+            string str = "geeksforgeeks";
+            Console.WriteLine("str before: \t" + str + "\tstr after: \t" + removeDupsUsingHash("geeksforgeeks"));
+        }
     }
 }

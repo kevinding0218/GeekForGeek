@@ -70,5 +70,14 @@ namespace GeekForGeek.Common
             }
             return b;
         }
+
+        public static void Test()
+        {
+            for (int i = 1; i < 10; i++)
+            {
+                Console.WriteLine("\ni:" + i + "\tFib: " + Fibonacci.GenerateFibNumberNonRecursive(i));
+                Console.WriteLine("--------------------");
+            }
+        }
     }
 }

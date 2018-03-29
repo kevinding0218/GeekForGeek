@@ -31,5 +31,11 @@ namespace GeekForGeek.Common
             return result;
             //Console.Write("SumOfFirstNReciprocals of n:" + result);
         }
+
+        public static void Test()
+        {
+            string output = SumUsingRecursion(5);
+            Console.Write("SumOfFirstNReciprocals of 5: \t" + output);
+        }
     }
 }

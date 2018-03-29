@@ -6,8 +6,8 @@ namespace GeekForGeek.LinkedList
 {
     public class Node
     {
-        int Value;
-        Node next;
+        public int Value { get; set; }
+        public Node Next { get; set; }
 
         public Node(int value)
         {

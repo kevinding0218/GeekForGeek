@@ -41,5 +41,11 @@ namespace GeekForGeek.Array
                     Console.Write(i + " ");
             }
         }
+
+        public static void Test()
+        {
+            var arr = new int[] { 1, 6, 3, 1, 3, 6, 6 };
+            FindRepeating(arr, arr.Length);
+        }
     }
 }

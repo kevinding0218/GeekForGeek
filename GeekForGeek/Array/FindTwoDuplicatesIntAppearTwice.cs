@@ -146,5 +146,13 @@ namespace GeekForGeek.Array
                 Console.WriteLine();
             }
         }
+
+        public static void Test()
+        {
+            int[] arr = { 1, 2, 3, 1, 3, 6, 6 };
+            int arr_size = arr.Length;
+
+            WithEncodeArray(arr, arr_size);
+        }
     }
 }
