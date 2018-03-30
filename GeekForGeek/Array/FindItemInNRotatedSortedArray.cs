@@ -13,6 +13,7 @@ namespace GeekForGeek.Array
         /// You may observe that the above function doesn’t 
         /// give you an efficient result in case of duplicate elements.However, if your array
         /// has duplicate entries then we can’t do better than O(n) which is as good as linear search.
+        /// 
         /// </summary>
         /// <param name="a"></param>
         /// <param name="l"></param>

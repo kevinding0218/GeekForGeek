@@ -22,6 +22,8 @@ namespace GeekForGeek
             //FindAllSubset.Test();
             //MergeTwoSortedArray.Test();
             //FindItemInNRotatedSortedArray.Test();
+            //RotateArray.Test();
+            //FindMinInRotatedSortedArray.Test();
             #endregion
 
             #region Common
@@ -31,13 +33,20 @@ namespace GeekForGeek
             //FindNumberOf1InBinary.Test();
             //CountNumOf2s.Test();
             //CoinChange.Test();
+            //ReverseInteger.Test();
+            IfPrime.Test();
             #endregion
 
             #region String
             //RemoveDuplicateCharInString.Test();
             //CheckAnagramString.Test();
             //MaxRecurringChar.Test();
-            FindLocationInEmptyArray.Test();
+            //FindLocationInEmptyArray.Test();
+            //ValidPalindrome.Test();
+            //StrStr.Test();
+            //ReverseWords.Test();
+            //LongestSubstringWithoutRepeating.Test();
+            //LongestPalindromicSubstring.Test();
             #endregion
 
             #region Tree

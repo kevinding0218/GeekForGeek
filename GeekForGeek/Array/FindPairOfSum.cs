@@ -33,7 +33,7 @@ namespace GeekForGeek.Array
         /// trying even smaller numbers (as last) won’t help us find a complement.
         /// Why must this find all complements for last? Because all pairs must be made up of a first and
         /// a last. We’ve found all complements for first, therefore we’ve found all complements of last.
-        /// O(NLogN)
+        /// O(N)
         /// </summary>
         /// <param name="ptr"></param>
         /// <param name="num"></param>
