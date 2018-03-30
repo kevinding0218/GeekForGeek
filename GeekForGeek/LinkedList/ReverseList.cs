@@ -54,15 +54,7 @@ namespace GeekForGeek.LinkedList
             return node;
         }
 
-        // prints content of double linked list
-        private static void PrintList(Node node)
-        {
-            while (node != null)
-            {
-                Console.Write(node.Value + " ");
-                node = node.Next;
-            }
-        }
+
 
         public static void Test()
         {
@@ -73,11 +65,11 @@ namespace GeekForGeek.LinkedList
             list.head.Next.Next.Next = new Node(20);
 
             Console.Write("Given Linked list \n");
-            PrintList(list.head);
+            list.head.PrintListFromNode();
             list.head = Reverse(list.head);
             Console.Write("\n");
             Console.Write("Reversed linked list \n");
-            PrintList(list.head);
+            list.head.PrintListFromNode();
         }
     }
 }

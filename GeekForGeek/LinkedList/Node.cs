@@ -14,4 +14,16 @@ namespace GeekForGeek.LinkedList
             Value = value;
         }
     }
+
+    public static class PrintList
+    {
+        public static void PrintListFromNode(this Node node)
+        {
+            while (node != null)
+            {
+                Console.Write(node.Value + " ");
+                node = node.Next;
+            }
+        }
+    }
 }

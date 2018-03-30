@@ -18,7 +18,10 @@ namespace GeekForGeek
             //FindDuplicateIntAppearN.Test();
             //FindMaxProductSubArray.Test();
             //Shuffle2nIntegers.Test();
-            FindPairOfSum.Test();
+            //FindPairOfSum.Test();
+            //FindAllSubset.Test();
+            //MergeTwoSortedArray.Test();
+            //FindItemInNRotatedSortedArray.Test();
             #endregion
 
             #region Common
@@ -34,6 +37,7 @@ namespace GeekForGeek
             //RemoveDuplicateCharInString.Test();
             //CheckAnagramString.Test();
             //MaxRecurringChar.Test();
+            FindLocationInEmptyArray.Test();
             #endregion
 
             #region Tree
@@ -45,6 +49,9 @@ namespace GeekForGeek
 
             #region LinkedList
             //ReverseList.Test();
+            //FindMiddleOfGivenList.Test();
+            //PairwiseSwapEementsInList.Test();
+            //DetectLoop.Test();
             #endregion
 
             Console.Write("\n");
