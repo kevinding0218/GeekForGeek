@@ -77,6 +77,7 @@ namespace GeekForGeek.Strings
             Console.Write("\nreverse before: " + String.Join(' ', s).ToString());
             for (int i = 0; i < (end - begin) / 2; i++)
             {
+                Console.Write("\nswap s[begin + i] " + s[begin + i] + " with s[end - i - 1] " + s[end - i - 1]);
                 char temp = s[begin + i];
                 s[begin + i] = s[end - i - 1];
                 s[end - i - 1] = temp;

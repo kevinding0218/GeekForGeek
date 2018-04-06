@@ -37,7 +37,9 @@ namespace GeekForGeek.Array
         private static int[] LeftRotate(int[] arr, int rotateBy, int length)
         {
             int i, j, k, temp;
-            for (i = 0; i < gcd(rotateBy, length); i++)
+            var gcd_num = gcd(rotateBy, length);
+            Console.Write("\ngcd_num:" + gcd_num + "\n");
+            for (i = 0; i < gcd_num; i++)
             {
                 /* move i-th values of blocks */
                 temp = arr[i];
@@ -49,8 +51,16 @@ namespace GeekForGeek.Array
                         k = k - length;
                     if (k == i)
                         break;
+                    Console.Write("\ni:" + i + "\tk:" + k + "\tj:" + j + "\n");
                     arr[j] = arr[k];
                     j = k;
+
+
+                    foreach (var n in arr)
+                    {
+
+                        Console.Write(n + " ");
+                    }
                 }
                 arr[j] = temp;
             }
@@ -69,6 +79,7 @@ namespace GeekForGeek.Array
         {
             int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
             int[] afterRotate = LeftRotate(arr, 2, 7);
+            Console.Write("\n");
             foreach (var item in afterRotate)
                 Console.Write(item + " ");
         }

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace GeekForGeek.Common
 {
+    /// <summary>
+    /// http://www.cnblogs.com/hello--the-world/archive/2012/05/31/2528084.html
+    /// </summary>
     public static class CountNumOf2s
     {
         /* A Simple Brute force solution is to iterate through all numbers from 0 to n. 

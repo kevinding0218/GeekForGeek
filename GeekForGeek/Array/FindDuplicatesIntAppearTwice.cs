@@ -48,5 +48,15 @@ namespace GeekForGeek.Array
                     Console.Write(Math.Abs(arr[i]) + " ");
             }
         }
+
+        public static void Test()
+        {
+            var arr = new int[] { 1, 6, 3, 1, 3, 6, 6 };
+            foreach (var n in arr)
+            {
+                Console.Write(n + " ");
+            }
+            WithEncodeArray(arr, arr.Length);
+        }
     }
 }

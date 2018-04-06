@@ -1,6 +1,7 @@
 ﻿using GeekForGeek.Array;
 using GeekForGeek.Common;
 using GeekForGeek.LinkedList;
+using GeekForGeek.Matrix;
 using GeekForGeek.Strings;
 using GeekForGeek.Trees;
 using System;
@@ -16,6 +17,7 @@ namespace GeekForGeek
             //FindDuplicateInStringArray.FindDuplicateStringWithCount();
             //FindDuplicateInStringArray.FindDuplicateObjectByPropertyWithCount();
             //FindDuplicateIntAppearN.Test();
+            //FindDuplicatesIntAppearTwice.Test();
             //FindMaxProductSubArray.Test();
             //Shuffle2nIntegers.Test();
             //FindPairOfSum.Test();
@@ -34,7 +36,9 @@ namespace GeekForGeek
             //CountNumOf2s.Test();
             //CoinChange.Test();
             //ReverseInteger.Test();
-            IfPrime.Test();
+            //IfPrime.Test();
+            //CountNumOf1s.Test();
+            //TowersOfHanoi.Test();
             #endregion
 
             #region String
@@ -54,14 +58,20 @@ namespace GeekForGeek
             //EvaluationExpressionTree.Test();
             //LevelOrder.Test();
             //TraversalPostOrder.Test();
+            //TraversalInOrder.Test();
             #endregion
 
             #region LinkedList
-            //ReverseList.Test();
+            ReverseList.Test();
             //FindMiddleOfGivenList.Test();
             //PairwiseSwapEementsInList.Test();
             //DetectLoop.Test();
             #endregion
+
+            #region Matrix
+            //Rotate90Matrix.Test();
+            #endregion
+
 
             Console.Write("\n");
             Console.ReadKey();

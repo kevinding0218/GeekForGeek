@@ -18,6 +18,7 @@ namespace GeekForGeek.Common
         /// sum(3) = 1/3 + sum(2)
         /// sum(2) = 1/2 + sum(1)
         /// sum(1) = 1
+        /// so sum(n) = 1/n + sum(n - 1)
         /// </summary>
         /// <param name="n"></param>
         public static string SumUsingRecursion(int n)

@@ -20,7 +20,7 @@ namespace GeekForGeek.OO
         }
     }
 
-    public class BaseClass
+    public abstract class BaseClass
     {
         public virtual void Print()
         {

@@ -49,6 +49,8 @@ namespace GeekForGeek.LinkedList
                 current.Next = prev;
                 prev = current;
                 current = next;
+
+                PrintList.PrintListFromNode(current);
             }
             node = prev;
             return node;
@@ -59,10 +61,10 @@ namespace GeekForGeek.LinkedList
         public static void Test()
         {
             LinkedList list = new LinkedList();
-            list.head = new Node(85);
-            list.head.Next = new Node(15);
-            list.head.Next.Next = new Node(4);
-            list.head.Next.Next.Next = new Node(20);
+            list.head = new Node(1);
+            list.head.Next = new Node(2);
+            list.head.Next.Next = new Node(3);
+            list.head.Next.Next.Next = new Node(4);
 
             Console.Write("Given Linked list \n");
             list.head.PrintListFromNode();

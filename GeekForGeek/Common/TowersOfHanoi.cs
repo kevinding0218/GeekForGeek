@@ -6,7 +6,7 @@ namespace GeekForGeek.Common
 {
     public static class TowersOfHanoi
     {
-        public static void Test(String[] args)
+        public static void Test()
         {
             char startPeg = 'A'; // start tower in output
             char endPeg = 'C'; // end tower in output

@@ -26,8 +26,9 @@ namespace GeekForGeek.Array
         /// Split the array into two halves: a1, a2, (a3, a4 : b1, b2), b3, b4
         /// Exchange element around the center: exchange (a3, a4) with (b1, b2) correspondingly.
         /// you get: a1, a2, (b1, b2, a3, a4), b3, b4
-        /// Recursively spilt a1, a2, b1, b2 into a1, (a2 : b1), b2
-        /// then split a3, a4, b3, b4 into a3, (a4 : b3), b4.
+        /// Recursively spilt a1, a2, b1, b2 into a1, (a2 : b1), b2 --> swap second half of arr1[] and first half of arr2[] to be a1, b1, a2, b2
+        /// then split a3, a4, b3, b4 into a3, (a4 : b3), b4.--> swap second half of arr1[] and first half of arr2[] to be a3, b3, a4, b4
+        /// array now become a1, b1, a2, b2, a3, b3, a4, b4
         /// Exchange elements around the center for each subarray we get:
         /// a1, b1, a2, b2 and a3, b3, a4, b4.
         /// Note: This solution only handles the case when n = 2i where i = 0, 1, 2, …etc.
@@ -37,6 +38,9 @@ namespace GeekForGeek.Array
         /// <param name="l"></param>
         static void ShuffleArray(int[] a, int f, int l)
         {
+            Console.Write("\n------------------");
+            Console.Write("\nCalling ShuffleArray with f:" + f + " and l: " + l);
+            printArray(a);
             // If only 2 element, return
             if (l - f == 1)
                 return;
@@ -45,23 +49,39 @@ namespace GeekForGeek.Array
             int mid = (f + l) / 2;
 
             // using temp for swapping first half of second array
-            int temp = mid + 1;
+            int firstHalfOfSecondArr = mid + 1;
 
             // mmid is use for swapping second half for first array
-            int mmid = (f + mid) / 2;
+            int secondHalfOfFirstArr = (f + mid) / 2;
 
             // Swapping the element
-            for (int i = mmid + 1; i <= mid; i++)
+            for (int i = secondHalfOfFirstArr + 1; i <= mid; i++)
             {
+                Console.Write("\nbefore swap:");
+                printArray(a);
+                var tempNext = firstHalfOfSecondArr + 1;
+                Console.Write("\nswap between index " + i + " and " + firstHalfOfSecondArr);
+                Console.Write("\nswap between value " + a[i] + " and " + a[firstHalfOfSecondArr]);
                 // swap a[i], a[temp++]
                 int temp1 = a[i];
-                a[i] = a[temp];
-                a[temp++] = temp1;
+                a[i] = a[firstHalfOfSecondArr];
+                a[firstHalfOfSecondArr++] = temp1;
+                Console.Write("\nafter swap:");
+                printArray(a);
             }
 
             // Recursively doing for first half and second half
             ShuffleArray(a, f, mid);
             ShuffleArray(a, mid + 1, l);
+        }
+
+        static void printArray(int[] a)
+        {
+            Console.Write("\n");
+            foreach (var n in a)
+            {
+                Console.Write(n + " ");
+            }
         }
 
         public static void Test()
@@ -70,6 +90,7 @@ namespace GeekForGeek.Array
 
             ShuffleArray(a, 0, a.Length - 1);
 
+            Console.Write("\nFinal result:\n");
             foreach (var obj in a)
                 Console.Write(obj + " ");
         }

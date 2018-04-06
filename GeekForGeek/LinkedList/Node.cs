@@ -19,11 +19,13 @@ namespace GeekForGeek.LinkedList
     {
         public static void PrintListFromNode(this Node node)
         {
+            Console.Write("----------------------\n");
             while (node != null)
             {
                 Console.Write(node.Value + " ");
                 node = node.Next;
             }
+            Console.Write("----------------------\n");
         }
     }
 }

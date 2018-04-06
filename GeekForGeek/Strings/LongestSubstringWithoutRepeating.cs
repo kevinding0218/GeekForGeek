@@ -71,15 +71,18 @@ namespace GeekForGeek.Strings
             int i = 0, maxLen = 0;
             for (int j = 0; j < s.Length; j++)
             {
+                Console.Write("\ni:" + i + "\tj:" + j);
+                Console.Write("\nbefore s.ToCharArray()[j]:" + s.ToCharArray()[j] + "\tcharMap[s.ToCharArray()[j]]:" + charMap[s.ToCharArray()[j]]);
                 if (charMap[s.ToCharArray()[j]] >= i)
                 {
-                    Console.Write("Duplicate Char Found which is " + s.ToCharArray()[j] + " at index " + j + "\n");
+                    Console.Write("\nDuplicate Char Found which is " + s.ToCharArray()[j] + " at index " + j);
                     i = charMap[s.ToCharArray()[j]] + 1;
-                    Console.Write("i updated to be " + i + "\n");
+                    Console.Write("\ni updated to be " + i + "\n");
                 }
                 charMap[s.ToCharArray()[j]] = j;
+                Console.Write("\nafter s.ToCharArray()[j]:" + s.ToCharArray()[j] + "\tcharMap[s.ToCharArray()[j]] become:" + charMap[s.ToCharArray()[j]]);
                 int currentSubStringWithoutDuplicateLength = j - i + 1;
-                Console.Write("currentSubStringWithoutDuplicateLength " + currentSubStringWithoutDuplicateLength + "\n");
+                Console.Write("\ncurrentSubStringWithoutDuplicateLength " + currentSubStringWithoutDuplicateLength + "\n");
                 maxLen = Math.Max(currentSubStringWithoutDuplicateLength, maxLen);
             }
             return maxLen;

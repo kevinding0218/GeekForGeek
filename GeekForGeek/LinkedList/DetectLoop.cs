@@ -25,13 +25,14 @@ namespace GeekForGeek.LinkedList
             {
                 slow_p = slow_p.Next;
                 fast_p = fast_p.Next.Next;
+                Console.Write("\nslow_p value: " + slow_p.Value + "\tfast_p value: " + fast_p.Value);
                 if (fast_p != null && slow_p.Value == fast_p.Value)
                 {
-                    Console.Write("Found loop\n");
+                    Console.Write("\nFound loop\n");
                     return 1;
                 }
             }
-            Console.Write("No Found loop\n");
+            Console.Write("\nNo Found loop\n");
             return 0;
         }
 
@@ -41,13 +42,18 @@ namespace GeekForGeek.LinkedList
             list.head = new Node(1);
             list.head.Next = new Node(2);
             list.head.Next.Next = new Node(3);
-            list.head.Next.Next.Next = new Node(4);
+            list.head.Next.Next.Next = new Node(1);
 
             //list.head.PrintListFromNode();
-            DetectLoopInList(list.head);
+            //DetectLoopInList(list.head);
             list.head.Next.Next.Next.Next = new Node(5);
             list.head.Next.Next.Next.Next.Next = list.head.Next;
             //list.head.PrintListFromNode();
+            //while(list.head != null)
+            //{
+            //    Console.Write(list.head.Value + " ");
+            //    list.head = list.head.Next;
+            //}
             DetectLoopInList(list.head);
         }
     }

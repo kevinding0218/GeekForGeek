@@ -57,20 +57,25 @@ namespace GeekForGeek.Array
             // Run a loop for printing all 2^n
             // subsets one by obe   
             // '<<' left shift
+            var leftshiftN = 1 << n;
+            Console.Write("\nleftshiftN: " + leftshiftN);
             for (int i = 0; i < (1 << n); i++)
             {
                 Console.Write("{ ");
 
                 // Print current subset
                 for (int j = 0; j < n; j++)
-
+                {
                     // (1<<j) is a number with jth bit 1
                     // so when we 'and' them with the
                     // subset number we get which numbers
                     // are present in the subset and which
                     // are not
+                    var leftshiftJ = 1 << j;
+                    Console.Write("\nleftshiftJ: " + leftshiftJ);
                     if ((i & (1 << j)) > 0)
                         Console.Write(set[j] + " ");
+                }
 
                 Console.Write("}");
             }

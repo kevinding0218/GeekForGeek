@@ -139,16 +139,16 @@ namespace GeekForGeek.Trees
             BinaryNodeInt root = new BinaryNodeInt(1);
             root.Left = new BinaryNodeInt(2);
             root.Right = new BinaryNodeInt(3);
-            root.Left.Left = new BinaryNodeInt(4);
-            root.Left.Right = new BinaryNodeInt(5);
-            root.Left.Right.Left = new BinaryNodeInt(6);
+            //root.Left.Left = new BinaryNodeInt(4);
+            //root.Left.Right = new BinaryNodeInt(5);
+            //root.Left.Right.Left = new BinaryNodeInt(6);
 
             // 1 2 4 5 3 
             Console.Write("Inorder traversal of binary tree is \n");
-            RecursiveInOrder(root);
-            Console.Write("\n");
-            IterativeInOrderUsingStack(root);
-            Console.Write("\n");
+            //RecursiveInOrder(root);
+            //Console.Write("\n");
+            //IterativeInOrderUsingStack(root);
+            //Console.Write("\n");
             IterativeInOrderUsingNonStack(root);
         }
     }
