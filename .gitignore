@@ -4,4 +4,11 @@
 
 /.vs
 /LINQ/obj
-/ObjectOriented/obj
+/DesignPattern/obj/
+/DesignPattern/bin/
+/GeekForGeek/obj/
+/GeekForGeek/bin/
+/LINQ/obj/
+/LINQ/bin/
+/ObjectOriented/obj/
+/ObjectOriented/bin/
