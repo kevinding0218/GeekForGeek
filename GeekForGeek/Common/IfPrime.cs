@@ -6,11 +6,12 @@ namespace GeekForGeek.Common
 {
     public static class IfPrime
     {
+        // O(sqrt(n))   --> O(n^1.5)
         private static void CheckIfPrime(int num)
         {
             int k;
             k = 0;
-            for (int i = 1; i <= num / 2; i++)
+            for (int i = 1; i <= Math.Sqrt(num); i++)
             {
                 if (num % i == 0)
                 {

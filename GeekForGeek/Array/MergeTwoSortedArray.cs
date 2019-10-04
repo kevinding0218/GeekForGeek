@@ -45,6 +45,44 @@ namespace GeekForGeek.Array
             Console.Write(string.Join(" ", a));
         }
 
+        public static List<int> mergeArrays(List<int> a, List<int> b)
+        {
+            int[] arr_A = a.ToArray();
+            int[] arr_B = b.ToArray();
+            int lengthA = arr_A.Length;
+            int lengthB = arr_B.Length;
+
+            List<int> result = new List<int>();
+            int indexA = 0, indexB = 0;
+
+            while (indexA < lengthA || indexB < lengthB)
+            {
+                // base case
+                // if A is iterated over, add all B'rest item into result
+                if (indexA >= lengthA)
+                {
+                    result.Add(arr_B[indexB]);
+                    indexB++;
+                    continue;
+                }
+
+                // if B is iterated over, add all A'rest item into result
+                if (indexB >= lengthB)
+                {
+                    result.Add(arr_A[indexA]);
+                    indexA++;
+                    continue;
+                }
+
+                // compare a[indexA] with b[indexB] and pick whichever small into result
+                // increment index? at the same time
+                result.Add(arr_A[indexA] < arr_B[indexB] ?
+                arr_A[indexA++] : arr_B[indexB++]);
+            }
+
+            return result;
+        }
+
         public static void Test()
         {
             MergeSortedArrays(new int[8] { 2, 4, 6, 8, 0, 0, 0, 0 }, new int[] { 1, 3, 5, 7 }, 4, 4);

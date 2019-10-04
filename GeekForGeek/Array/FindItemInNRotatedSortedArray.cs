@@ -6,55 +6,67 @@ namespace GeekForGeek.Array
 {
     public static class FindItemInNRotatedSortedArray
     {
-        /// <summary>
-        /// A is the array. l and u are lower and upper indexes of the array. 
-        /// x is the key that we want to search.
-        /// We can do this with a modification of binary search.
-        /// You may observe that the above function doesn’t 
-        /// give you an efficient result in case of duplicate elements.However, if your array
-        /// has duplicate entries then we can’t do better than O(n) which is as good as linear search.
-        /// 
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="l"></param>
-        /// <param name="u"></param>
-        /// <param name="x"></param>
-        /// <returns></returns>
-        private static int FindItemInRotatedSortedArray(int[] a, int l, int u, int x)
+        public static int Search(int[] nums, int target)
         {
-            while (l <= u)
-            {
-                int m = (l + u) / 2;
-                if (x == a[m])
-                {
-                    return m;
-                }
-                else if (a[l] <= a[m])
-                {
-                    if (x > a[m])
-                    {
-                        l = m + 1;
-                    }
-                    else if (x >= a[l])
-                    {
-                        u = m - 1;
-                    }
-                    else
-                    {
-                        l = m + 1;
-                    }
-                }
-                else if (x < a[m]) u = m - 1;
-                else if (x <= a[u]) l = m + 1;
-                else u = m - 1;
-            }
-            return -1;
+            int length = nums.Length;
+            int pivot = findPivot(nums, 0, length - 1);
+
+            // If we didn't find a pivot, then 
+            // array is not rotated at all 
+            if (pivot == -1)
+                return binarySearch(nums, 0, length - 1, target);
+
+            // If we found a pivot, then first 
+            // compare with pivot and then 
+            // search in two subarrays around pivot 
+            if (nums[pivot] == target)
+                return pivot;
+
+            if (nums[0] <= target)
+                return binarySearch(nums, 0, pivot - 1, target);
+
+            return binarySearch(nums, pivot + 1, length - 1, target);
         }
 
-        public static void Test()
+        static int findPivot(int[] arr, int low, int high)
         {
-            int[] a = new int[] { 5, 6, 7, 8, 1, 2, 3, 4 };
-            Console.Write("Item 3 is " + FindItemInRotatedSortedArray(a, 0, 7, 3));
+            // base cases 
+            if (high < low)
+                return -1;
+            if (high == low)
+                return low;
+
+            /* low + (high - low)/2; */
+            int mid = (low + high) / 2;
+
+            if (mid < high && arr[mid] > arr[mid + 1])
+                return mid;
+
+            if (mid > low && arr[mid] < arr[mid - 1])
+                return (mid - 1);
+
+            if (arr[low] >= arr[mid])
+                return findPivot(arr, low, mid - 1);
+
+            return findPivot(arr, mid + 1, high);
+        }
+
+        /* Standard Binary Search function */
+        static int binarySearch(int[] arr, int low,
+                                int high, int key)
+        {
+            if (high < low)
+                return -1;
+
+            /* low + (high - low)/2; */
+            int mid = (low + high) / 2;
+
+            if (key == arr[mid])
+                return mid;
+            if (key > arr[mid])
+                return binarySearch(arr, (mid + 1), high, key);
+
+            return binarySearch(arr, low, (mid - 1), key);
         }
     }
 }
