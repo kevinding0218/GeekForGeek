@@ -39,6 +39,8 @@ namespace GeekForGeek
             //IfPrime.Test();
             //CountNumOf1s.Test();
             //TowersOfHanoi.Test();
+            //DigitalClock.LongRunTask();
+            //Console.WriteLine($"Number of Primes from 1-13: {CountPrimes.solution(13)}");
             #endregion
 
             #region String
@@ -65,14 +67,12 @@ namespace GeekForGeek
             //ReverseList.Test();
             //FindMiddleOfGivenList.Test();
             //PairwiseSwapEementsInList.Test();
-            //DetectLoop.Test();
+            DetectLoop.Test();
             #endregion
 
             #region Matrix
             //Rotate90Matrix.Test();
             #endregion
-
-            DigitalClock.LongRunTask();
 
             Console.Write("\n");
             Console.ReadKey();

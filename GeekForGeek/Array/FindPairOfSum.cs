@@ -106,7 +106,7 @@ namespace GeekForGeek.Array
         public static void Test()
         {
             int[] arr = new int[] { 1, 5, 7, -1, 5 };
-            int sum = 6;
+            int sum = 10;
             Console.Write("Count of pairs is " + getPairsCount(arr, arr.Length, sum));
         }
     }

@@ -29,5 +29,15 @@ namespace GeekForGeek.Common
         //Partitions the array into a finite number of buckets, and then sorts each bucket individually.
         //It gives a time of O(n + m), where n is the number of items and m is the number of distinct
         //items.
+
+        //Merge Sort vs Quick Sort
+        //Similarities:
+        //Both follow the concept of Divide and Conquer
+        //Differences:
+        //Merge sort will divide the array exactly at mid point, while quick sort may or may not parition into equal parts.
+        //Merge sort require additional space of O(n), while quick sort may not need
+        //Merge sort is stable while quick sort is unstable, meaning if array contains duplicate elements, element will remain previous order after sorting.
+        //Merge sort will perform 2*T(n/2) then O(n) while quick sort will do O(n) then 2*T(n/2)
+        //Merge sort best/worst case is O(nlogn), while quick sort best case O(nlogn) worst case O(n^2)
     }
 }

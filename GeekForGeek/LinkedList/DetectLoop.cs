@@ -18,7 +18,7 @@ namespace GeekForGeek.LinkedList
         /// </summary>
         /// <param name="head"></param>
         /// <returns></returns>
-        private static int DetectLoopInList(Node head)
+        private static void DetectLoopInList(Node head)
         {
             Node slow_p = head, fast_p = head;
             while (slow_p != null && fast_p != null && fast_p.Next != null)
@@ -29,11 +29,9 @@ namespace GeekForGeek.LinkedList
                 if (fast_p != null && slow_p.Value == fast_p.Value)
                 {
                     Console.Write("\nFound loop\n");
-                    return 1;
                 }
             }
             Console.Write("\nNo Found loop\n");
-            return 0;
         }
 
         public static void Test()
@@ -42,11 +40,8 @@ namespace GeekForGeek.LinkedList
             list.head = new Node(1);
             list.head.Next = new Node(2);
             list.head.Next.Next = new Node(3);
-            list.head.Next.Next.Next = new Node(1);
-
-            //list.head.PrintListFromNode();
-            //DetectLoopInList(list.head);
-            list.head.Next.Next.Next.Next = new Node(5);
+            list.head.Next.Next.Next = new Node(5);
+            list.head.Next.Next.Next.Next = new Node(6);
             list.head.Next.Next.Next.Next.Next = list.head.Next;
             //list.head.PrintListFromNode();
             //while(list.head != null)
