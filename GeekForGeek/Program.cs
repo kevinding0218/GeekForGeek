@@ -30,7 +30,7 @@ namespace GeekForGeek
 
             #region Common
             //Fibonacci.Test();
-            ///SumOfFirstNReciprocals.Test()
+            //SumOfFirstNReciprocals.Test()
             //PowerOf2.Test();
             //FindNumberOf1InBinary.Test();
             //CountNumOf2s.Test();
@@ -62,7 +62,7 @@ namespace GeekForGeek
             #endregion
 
             #region LinkedList
-            ReverseList.Test();
+            //ReverseList.Test();
             //FindMiddleOfGivenList.Test();
             //PairwiseSwapEementsInList.Test();
             //DetectLoop.Test();
@@ -72,6 +72,7 @@ namespace GeekForGeek
             //Rotate90Matrix.Test();
             #endregion
 
+            DigitalClock.LongRunTask();
 
             Console.Write("\n");
             Console.ReadKey();
