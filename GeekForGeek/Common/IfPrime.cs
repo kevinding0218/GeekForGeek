@@ -7,25 +7,22 @@ namespace GeekForGeek.Common
     public static class IfPrime
     {
         // O(sqrt(n))   --> O(n^1.5)
-        private static void CheckIfPrime(int num)
+        private static bool CheckIfPrime(int num)
         {
-            int k;
-            k = 0;
-            for (int i = 1; i <= Math.Sqrt(num); i++)
+            if (num == 0 || num == 1)
+                return false;
+
+            if (num % 2 == 0) return false;
+
+            for (int i = 3; i <= Math.Sqrt(num); i = i +2)
             {
                 if (num % i == 0)
                 {
-                    k++;
+                    return false;
                 }
             }
-            if (k == 2)
-            {
-                Console.WriteLine("Entered Number is a Prime Number and the Largest Factor is {0}", num);
-            }
-            else
-            {
-                Console.WriteLine("Not a Prime Number");
-            }
+
+            return true;
         }
 
         public static void Test()
