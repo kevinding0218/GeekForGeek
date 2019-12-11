@@ -10,7 +10,7 @@ namespace GeekForGeek.Common
     // https://stackoverflow.com/questions/12190326/parsing-one-terabyte-of-text-and-efficiently-counting-the-number-of-occurrences
     class WordCountInLargeFile
     {
-        public static void Main(string[] args)
+        public static void Test(string[] args)
         {
             Console.WriteLine("Counting words...");
             DateTime start_at = DateTime.Now;

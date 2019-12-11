@@ -19,125 +19,167 @@ namespace GeekForGeek.Common
      * We will remove element from bottom and add element on start of LinkedList and whenever any entry is accessed, 
      * it will be moved to top. so that recently used entries will be on Top and Least used will be on Bottom.
      */
-    public class Entry
-    {
-        public int value { get; set; }
-        public int key { get; set; }
-        public Entry left { get; set; }
-        public Entry right { get; set; }
-    }
 
     // https://medium.com/@krishankantsinghal/my-first-blog-on-medium-583159139237
+    /*
+     * capacity of 5
+     * put(1,1)
+     * Header -> (1,1) -> Tail
+     * put(2,3)
+     * H -> (2,3) -> (1,1) -> T
+     * put(3,4)
+     * H -> (3,4) -> (2,3) -> (1,1) -> T
+     * put(4,7)
+     * H -> (4,7) -> (3,4) -> (2,3) -> (1,1) -> T
+     * put(6,10)
+     * H -> (6,10) -> (4,7) -> (3,4) -> (2,3) -> (1,1) -> T
+     * get(1)
+     * H -> (1,1) -> (6,10) -> (4,7) -> (3,4) -> (2,3) -> T
+     * get(3)
+     * H -> (3,4) -> (1,1) -> (6,10) -> (4,7) -> (2,3) -> T
+     * put(1,5)
+     * H -> (1,5) -> (3,4) -> (6,10) -> (4,7) -> (2,3) -> T
+     * put(12,7)
+     * H -> (12,7) -> (1,5) -> (3,4) -> (6,10) -> (4,7) -> T
+     * put(5,2)
+     * H -> (5,2) -> (12,7) -> (1,5) -> (3,4) -> (6,10) -> T
+     * get(4)
+     * 
+     */
     public class LRUCache
     {
-        Dictionary<int, Entry> hashmap;
-        Entry start, end;
-        int LRU_SIZE = 4; // Here i am setting 4 to test the LRU cache
-                          // implementation, it can make be dynamic
-        public LRUCache()
+        private class ListNode
         {
-            hashmap = new Dictionary<int, Entry>();
+            public int key { get; set; }
+            public int value { get; set; }
+
+            public ListNode prev { get; set; }
+            public ListNode next { get; set; }
         }
 
-        public int getEntry(int key)
+        // Hashtable backs up the Doubly Linked List for O(1) access to cache items
+        Dictionary<int, ListNode> hashtable = new Dictionary<int, ListNode>();
+        ListNode head;
+        ListNode tail;
+
+        //int totalItemsInCache;
+        //int maxCapacity;
+        public int totalItemsInCache { get; set; }
+        public int maxCapacity { get; set; }
+
+        public LRUCache(int maxCapacity)
         {
-            if (hashmap.ContainsKey(key)) // Key Already Exist, just update the
-            {
-                Entry entry;
-                if (hashmap.TryGetValue(key, out entry))
-                {
-                    removeNode(entry);
-                    addAtTop(entry);
-                    return entry.value;
-                }
-            }
-            return -1;
+            // Cache starts empty and capacity is set by client
+            totalItemsInCache = 0;
+            this.maxCapacity = maxCapacity;
+
+            // Dummy head and tail nodes to avoid empty states
+            head = new ListNode();
+            tail = new ListNode();
+
+            // Wire the head and tail together
+            head.next = tail;
+            tail.prev = head;
         }
 
-        public void putEntry(int key, int value)
+        public int get(int key)
         {
-            if (hashmap.ContainsKey(key)) // Key Already Exist, just update the value and move it to top
+            ListNode node = null;
+            if (hashtable.TryGetValue(key, out node))
             {
-                Entry entry;
-                if (hashmap.TryGetValue(key, out entry))
-                {
-                    entry.value = value;
-                    removeNode(entry);
-                    addAtTop(entry);
-                }
-            }
-            else
+                // Item has been accessed. Move to the front of the cache
+                moveToHead(node);
+
+                return node.value;
+            } else
             {
-                Entry newnode = new Entry();
-                newnode.left = null;
-                newnode.right = null;
-                newnode.value = value;
-                newnode.key = key;
-                if (hashmap.Count > LRU_SIZE) // We have reached maxium size so need to make room for new element.
-                {
-                    hashmap.Remove(end.key);
-                    removeNode(end);
-                    addAtTop(newnode);
-
-                }
-                else
-                {
-                    addAtTop(newnode);
-                }
-
-                hashmap.Add(key, newnode);
+                return -1; // we should throw an exception here, but for Leetcode's sake
             }
         }
 
-        public void addAtTop(Entry node)
+        public void put(int key, int value)
         {
-            node.right = start;
-            node.left = null;
-            if (start != null)
-                start.left = node;
-            start = node;
-            if (end == null)
-                end = start;
+            ListNode node = null;
+
+            if (hashtable.TryGetValue(key, out node))
+            {
+                // If item is found in the cache, just update it and move it to the head of the list
+                node.value = value;
+                moveToHead(node);
+            }
+            else {
+                // Item not found, create a new entry
+                ListNode newNode = new ListNode();
+                newNode.key = key;
+                newNode.value = value;
+
+                // Add to the hashtable and the actual list that represents the cache
+                hashtable.Add(key, newNode);
+                addToFront(newNode);
+                totalItemsInCache++;
+
+                // If over capacity remove the LRU item
+                if (totalItemsInCache > maxCapacity)
+                {
+                    removeLRUEntry();
+                }
+            }
         }
 
-        public void removeNode(Entry node)
+        private void removeLRUEntry()
         {
+            ListNode tail = popTail();
 
-            if (node.left != null)
-            {
-                node.left.right = node.right;
-            }
-            else
-            {
-                start = node.right;
-            }
+            hashtable.Remove(tail.key);
+            --totalItemsInCache;
+        }
 
-            if (node.right != null)
-            {
-                node.right.left = node.left;
-            }
-            else
-            {
-                end = node.left;
-            }
+        private ListNode popTail()
+        {
+            ListNode tailItem = tail.prev;
+            removeFromList(tailItem);
+
+            return tailItem;
+        }
+
+        private void addToFront(ListNode node)
+        {
+            // Wire up the new node being to be inserted
+            node.prev = head;
+            node.next = head.next;
+
+            /*
+              Re-wire the node after the head. Our node is still sitting "in the middle of nowhere".
+              We got the new node pointing to the right things, but we need to fix up the original
+              head & head's next.
+              head <-> head.next <-> head.next.next <-> head.next.next.next <-> ...
+              ^            ^
+              |- new node -|
+              That's where we are before these next 2 lines.
+            */
+            head.next.prev = node;
+            head.next = node;
+        }
+
+        private void removeFromList(ListNode node)
+        {
+            ListNode savedPrev = node.prev;
+            ListNode savedNext = node.next;
+
+            savedPrev.next = savedNext;
+            savedNext.prev = savedPrev;
+        }
+
+        private void moveToHead(ListNode node)
+        {
+            removeFromList(node);
+            addToFront(node);
         }
 
         public static void test(String[] args)
         {
             // your code goes here
-            LRUCache lrucache = new LRUCache();
-            lrucache.putEntry(1, 1);
-            lrucache.putEntry(10, 15);
-            lrucache.putEntry(15, 10);
-            lrucache.putEntry(10, 16);
-            lrucache.putEntry(12, 15);
-            lrucache.putEntry(18, 10);
-            lrucache.putEntry(13, 16);
-
-            Console.WriteLine(lrucache.getEntry(1));
-            Console.WriteLine(lrucache.getEntry(10));
-            Console.WriteLine(lrucache.getEntry(15));
+            LRUCache lrucache = new LRUCache(5);
         }
     }
-}
 }
